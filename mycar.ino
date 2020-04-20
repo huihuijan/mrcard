@@ -1,26 +1,28 @@
 #include <AFMotor.h>
 
-AF_DCMotor motor3(3);
-AF_DCMotor motor4(4);
+AF_DCMotor motorL(3);
+AF_DCMotor motorR(4);
 
 void setup() {
-  motor3.setSpeed(200);
-  motor3.run(RELEASE);
-  motor4.setSpeed(200);
-  motor4.run(RELEASE);
+  motorL.setSpeed(200);
+  motorL.run(RELEASE);
+  motorR.setSpeed(200);
+  motorR.run(RELEASE);
 }
 
-
 void loop() {
-//  motor3.run(FORWARD);
-//  motor4.run(FORWARD);
-//  delay(3000);
-//  
-//  motor3.run(BACKWARD);
-//  motor4.run(BACKWARD);
-//  delay(3000);
-// 
-//  motor3.run(RELEASE);
-//  motor4.run(RELEASE);
-//  delay(1000);
+  int command = Serial.parseInt();
+  
+  if(command==1) {  // 停止
+    motorL.run(RELEASE);
+    motorR.run(RELEASE);
+  }
+  else if(command==2) {  // 前進
+    motorL.run(FORWARD);
+    motorR.run(FORWARD);
+  }
+  else if(command==3) {  // 後退
+    motorL.run(BACKWARD);
+    motorR.run(BACKWARD);
+  }
 }

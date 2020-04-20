@@ -14,13 +14,17 @@ void setup() {
 }
 
 void loop() {
-  ExecCommand();
+  int command = GetCommand();
+  ExecCommand(command);
 }
 
-void ExecCommand()
-{
+int GetCommand() {
   int command = Serial.parseInt();
-  
+  return command;
+}
+
+void ExecCommand(int command)
+{
   if(command==1) {  // 停止
     motorL.run(RELEASE);
     motorR.run(RELEASE);

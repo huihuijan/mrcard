@@ -8,6 +8,9 @@ void setup() {
   motorL.run(RELEASE);
   motorR.setSpeed(200);
   motorR.run(RELEASE);
+
+  Serial.begin(9600);
+  Serial.setTimeout(50);
 }
 
 void loop() {

@@ -14,6 +14,11 @@ void setup() {
 }
 
 void loop() {
+  ExecCommand();
+}
+
+void ExecCommand()
+{
   int command = Serial.parseInt();
   
   if(command==1) {  // 停止
